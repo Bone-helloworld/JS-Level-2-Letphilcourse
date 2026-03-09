@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Step 1: Add meta tag to tell the browser to use UTF-8 character encoding -->
+    <meta charset="UTF-8" />
+
+    <!-- Step 2: Add meta tag to make the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Step 3: Add the title that appears on the browser tab -->
+    <title>🛒 Smart Checkout System</title>
+
+    <!-- Step 4 & 5: Link your external CSS file so the HTML elements get styled -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+     <main class="container">
+          <section>
+               <div class= "card" id="left-card">
+                    <div class="header">
+                         <h1>Smart Checkout System</h1>
+                         <span class="badge">Secure</span>
+                    </div>
+                    <label for="cartTotal">Cart Total:</label>
+                    <input type="number" id="cartTotal" placeholder="180"/>
+                    <div class="row">
+                         <label for = "membership">Membership: </label>
+                         <select id="membership">
+                              <option value="standard">Standard</option>
+                              <option value="premium">Premium</option>
+                              <option value="vip">VIP</option>
+                         </select>
+                         <label for = "coupon">Coupon: </label>
+                         <select id="coupon">
+                              <option value = "No">No</option>
+                              <option value ="Yes">Yes</option>
+                         </select>
+                    </div>
+                    <button class="btn" id="calcBtn">Calculate Total</button>
+                    <p class="message" id="message"></p>
+               </div>
+          </section>
+          <section>
+               <div class="card" id="right-card">
+                    <div class="header">
+                         <h1>Order Summary</h1>
+                         <span class="badge">Receipt</span>
+                    </div>
+                    <div class="line">
+                         <span>Subtotal:</span>
+                         <span id="subtotalText">$0.00</span>
+                    </div>
+                    <div class="line">
+                         <span>Discount:</span>
+                         <span id="discountText">$0.00</span>
+                    </div>
+                    <div class="line">
+                         <span>Shipping:</span>
+                         <span id="shippingText">$0.00</span>
+                    </div>
+                    <div class="total">
+                         <span>Final Total:</span>
+                         <span id="finalTotalText">$0.00</span>
+                    </div>
+                    <p class="note">
+                         Premium gets 15% off. VIP gets 25% off. Coupon adds extra 10% off. Orders >= $150 ship free.
+                    </p>
+               </div>
+          </section>
+     </main>
+    <!-- ✅ SMART CHECKOUT SYSTEM -->
+    <!-- Goal: Build a realistic checkout page UI and let JavaScript calculate totals. -->
+    <!-- NOTE: Your *checkout logic* must use ONLY: variables, data types, operators, conditionals. -->
+    <!-- DOM + event listeners are allowed because this is the Realistic UI version. -->
+
+    <!-- Step 6: Create a main container that holds TWO cards (left = inputs, right = summary) -->
+    <!-- Give it a class="container" -->
+
+    <!-- Step 7: Create the LEFT card (checkout inputs) -->
+    <!-- Give it a class="card" -->
+    <!-- Inside it, add a header area with:
+         - a title like "Smart Checkout" (use an <h1>)
+         - a badge like "Secure" (use a <span>)
+         Use class="header" for the wrapper and class="badge" for the badge -->
+
+    <!-- Step 8: Add a label + input for Cart Total -->
+    <!-- The input must be type="number" -->
+    <!-- Give it id="cartTotal" so JavaScript can read it -->
+    <!-- Add a placeholder like: 180 -->
+
+    <!-- Step 9: Add a row with TWO dropdowns (membership + coupon) -->
+    <!-- Wrap them in a div class="row" so they sit side-by-side -->
+
+    <!-- Step 10: Membership dropdown -->
+    <!-- Give it id="membership" -->
+    <!-- Add 3 options:
+         - value="standard" text "Standard"
+         - value="premium"  text "Premium"
+         - value="vip"      text "VIP" -->
+
+    <!-- Step 11: Coupon dropdown -->
+    <!-- Give it id="coupon" -->
+    <!-- Add 2 options:
+         - value="no"  text "No"
+         - value="yes" text "Yes" -->
+
+    <!-- Step 12: Add a button to calculate the totals -->
+    <!-- Give it id="calcBtn" and class="btn" -->
+    <!-- Button text: "Calculate Total" -->
+
+    <!-- Step 13: Add a message paragraph under the button -->
+    <!-- Give it id="message" and class="message" -->
+    <!-- JavaScript will update this text with warnings or free shipping messages -->
+
+    <!-- Step 14: Create the RIGHT card (order summary receipt) -->
+    <!-- Give it class="card" -->
+    <!-- Add a header with:
+         - "Order Summary" (use <h1>)
+         - badge like "Receipt" (use <span class="badge">) -->
+
+    <!-- Step 15: Create 4 receipt lines using divs -->
+    <!-- Each line should:
+         - have class="line"
+         - have a label on the left (like "Subtotal")
+         - have a value on the right (like "$0.00") that JS updates
+
+         IMPORTANT: give these value elements the EXACT ids below:
+         - Subtotal value id="subtotalText"
+         - Discount value id="discountText"
+         - Shipping value id="shippingText"
+         - Final Total value id="finalTotalText"
+
+         Also: give the Final Total line an extra class="total" so it stands out.
+    -->
+
+    <!-- Step 16: Add a small note (optional but realistic) -->
+    <!-- Use a <p class="note"> explaining:
+         - Premium gets 15% off
+         - VIP gets 25% off
+         - Coupon adds extra 10% off
+         - Orders >= $150 ship free -->
+
+    <!-- Step 17: Make sure your script.js is linked-->
+     <script src="script.js"></script>
+  </body>
+</html>
