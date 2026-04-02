@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   BASE LAYOUT
+========================= */
+body {
+  min-height: 100vh;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #ecfdf5;
+
+  background: radial-gradient(circle at top, #22c55e, #0f172a 60%, #020617);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.2rem;
+  padding-top: 80px; /* tránh bị header fixed che */
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  position: relative;
+}
+
+/* =========================
+   LOGO (LEFT)
+========================= */
+.logo {
+  position: fixed;
+  top: 36px;
+  left: 32px;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  z-index: 10;
+}
+
+/* =========================
+   NAVBAR (CENTER - GLASS)
+========================= */
+.nav-center {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  padding: 0.6rem 1.2rem;
+  width: fit-content;
+
+  border-radius: 999px;
+
+  /* glass effect */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  z-index: 20;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+.nav-center a {
+  position: relative;
+
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+
+  text-decoration: none;
+  color: #ffffff;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* hover interaction */
+.nav-center a:hover {
+  transform: scale(1.15);
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* light reflection */
+.nav-center a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.nav-center a:hover::before {
+  opacity: 1;
+}
+
+/* click feedback */
+.nav-center a:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   LANGUAGE SWITCHER (RIGHT)
+========================= */
+.lang-switch {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+
+  z-index: 10;
+}
+
+#lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.35rem 0.7rem;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+#lang-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
