@@ -50,71 +50,74 @@ searchCountryBtn.addEventListener("click", () => {
     if (countryName === "") {
         countryStatusMessage.textContent = "Please type a country name.";
         return;
-    } else {
-        const url = "https://restcountries.com/v3.1/name/"+encodeURIComponent(countryName)+"?fields=name,capital,region,population";
-        countryStatusMessage.textContent = "Loading...";
-        countryNameDisplay.textContent = "Country: -";
-
-        // ==============================================
-        // STEP 3 – CALL FETCH
-        // ==============================================
-        //
-        // STEP 3: Call fetch(url).
-        //         - In the first .then, check if response.ok is false.
-        //           If not ok, throw an error:
-        //             if (!response.ok) {
-        //               throw new Error("Country not found");
-        //             }
-        //           Then return response.json().
-        //         - In the next .then, you will receive data (the JSON).
-        fetch(url)
-        .then((response) => {
-            if(!response.ok) {
-                throw new Error("Country not found");
-            }
-            return response.json();
-        })
-        .then((data) => {
-            const country = data[0];
-            const name = country.name.common;
-            const capital = country.capital ? country.capital[0] : "N/A";
-            const region = country.region;
-            const population = country.population;
-
-            countryNameDisplay.textContent = "Country: " + name;
-            countryCapitalDisplay.textContent = "Capital: " + capital;
-            countryRegionDisplay.textContent = "Region: " + region;
-            countryPopulationDisplay.textContent = "Population: " + population;
-            countryStatusMessage.textContent = "Country information loaded successfully.";
-        })
-        // ==============================================
-        // STEP 4 – HANDLE DATA
-        // ==============================================
-        //
-        // STEP 4: In the .then(data => { ... }):
-        //         - data will be an array. Take the first item: data[0].
-        //         - From that object, read:
-        //             * name.common
-        //             * capital (array, use capital[0] if it exists)
-        //             * region
-        //             * population
-        //         - Update the textContent of the display elements, e.g.:
-        //             countryNameDisplay.textContent = "Country: " + name;
-        //         - Set countryStatusMessage.textContent to
-        //             "Country information loaded successfully.".
-
-        // ==============================================
-        // STEP 5 – HANDLE ERRORS
-        // ==============================================
-        //
-        // STEP 5: Add a .catch(...) at the end of the fetch chain.
-        //         Inside the catch:
-        //         - Set countryStatusMessage.textContent to a friendly message like
-        //           "Could not load country info. Please check the name and try again.".
-        //         - (Optional) You can also log the error to the console.
-        .catch((error) => {
-            console.error(error);
-            countryStatusMessage.textContent = "Could not load country info. Please check the name and try again."
-        })
     }
+    
+    const url = "https://restcountries.com/v3.1/name/"+encodeURIComponent(countryName)+"?fields=name,capital,region,population";
+    countryStatusMessage.textContent = "Loading...";
+    countryNameDisplay.textContent = "";
+    countryCapitalDisplay.textContent = "";
+    countryRegionDisplay.textContent = "";
+    countryPopulationDisplay.textContent = "";
+
+    // ==============================================
+    // STEP 3 – CALL FETCH
+    // ==============================================
+    //
+    // STEP 3: Call fetch(url).
+    //         - In the first .then, check if response.ok is false.
+    //           If not ok, throw an error:
+    //             if (!response.ok) {
+    //               throw new Error("Country not found");
+    //             }
+    //           Then return response.json().
+    //         - In the next .then, you will receive data (the JSON).
+    fetch(url)
+    .then((response) => {
+        if(!response.ok) {
+            throw new Error("Country not found");
+        }
+        return response.json();
+    })
+    .then((data) => {
+        const country = data[0];
+        const name = country.name.common;
+        const capital = country.capital ? country.capital[0] : "N/A";
+        const region = country.region;
+        const population = country.population;
+
+        countryNameDisplay.textContent = "Country: " + name;
+        countryCapitalDisplay.textContent = "Capital: " + capital;
+        countryRegionDisplay.textContent = "Region: " + region;
+        countryPopulationDisplay.textContent = "Population: " + population;
+        countryStatusMessage.textContent = "Country information loaded successfully.";
+    })
+    // ==============================================
+    // STEP 4 – HANDLE DATA
+    // ==============================================
+    //
+    // STEP 4: In the .then(data => { ... }):
+    //         - data will be an array. Take the first item: data[0].
+    //         - From that object, read:
+    //             * name.common
+    //             * capital (array, use capital[0] if it exists)
+    //             * region
+    //             * population
+    //         - Update the textContent of the display elements, e.g.:
+    //             countryNameDisplay.textContent = "Country: " + name;
+    //         - Set countryStatusMessage.textContent to
+    //             "Country information loaded successfully.".
+
+    // ==============================================
+    // STEP 5 – HANDLE ERRORS
+    // ==============================================
+    //
+    // STEP 5: Add a .catch(...) at the end of the fetch chain.
+    //         Inside the catch:
+    //         - Set countryStatusMessage.textContent to a friendly message like
+    //           "Could not load country info. Please check the name and try again.".
+    //         - (Optional) You can also log the error to the console.
+    .catch((error) => {
+        console.error(error);
+        countryStatusMessage.textContent = "Could not load country info. Please check the name and try again."
+    })
 })
