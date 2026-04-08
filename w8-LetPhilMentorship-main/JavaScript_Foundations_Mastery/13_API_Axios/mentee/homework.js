@@ -52,10 +52,10 @@ searchCountryBtn.addEventListener("click", async () => {
         return;
     } const url ="https://restcountries.com/v3.1/name/"+encodeURIComponent(countryName)+"?fields=name,capital,region,population";
     countryStatusMessage.textContent = "Loading...";
-    countryNameDisplay.textContent = "";
-    countryCapitalDisplay.textContent = "";
-    countryRegionDisplay.textContent = "";
-    countryPopulationDisplay.textContent = "";
+    // countryNameDisplay.textContent = "";
+    // countryCapitalDisplay.textContent = "";
+    // countryRegionDisplay.textContent = "";
+    // countryPopulationDisplay.textContent = "";
     try {
         const response = await axios.get(url);
         const countryData = response.data[0];
