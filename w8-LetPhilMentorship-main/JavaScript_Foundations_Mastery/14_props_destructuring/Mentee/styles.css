@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: linear-gradient(180deg, #050507, #0d0b14);
+  color: #f9fafb;
+}
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px;
+  display: grid;
+  gap: 22px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+}
+button {
+  background: linear-gradient(135deg, #5b4f0b, #facc15);
+  border: none;
+  border-radius: 999px;
+  padding: 11px 15px;
+  font-weight: 900;
+  color: #09070f;
+  cursor: pointer;
+}
+.output {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+}
+.grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+.product-card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+}
