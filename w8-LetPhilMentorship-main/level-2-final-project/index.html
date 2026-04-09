@@ -1,52 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>AlphaScript Marketplace</title>
-    <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="information.css" />
-  </head>
-  <body>
-    <header class="header">
-      <h1 class="logo">AlphaScript</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaScript — AI Autonomous Trading Agents</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="information.css">
+  <link rel="stylesheet" href="ticker.css">
+  <script src="script.js" defer></script>
+  <script src="ticker.js" defer></script>
+</head>
+<body>
 
-      <nav class="nav-center">
-        <a href="index.html">Trading Agents</a>
-        <a href="agents.html">Pricing</a>
-        <a href="about.html">Resources</a>
-      </nav>
+  <!-- HEADER / NAVBAR  -->
+ <header class="header">
+  <!-- Logo is clickable -->
+    <a href="index.html" class="logo">AlphaScript</a>
+    
+    <nav class="nav-center">
+      <a href="agents.html">Trading Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">Resources</a>
+    </nav>
 
-      <div class="lang-switch">
-        <button id="lang-btn">
-          <span class="icon">🌐</span>
-          <span class="lang-text">ENG</span>
-        </button>
-      </div>
-    </header>
-    <main>
-      <section class="introduction">
-        <h2 class="introduction-description">AI Autonomous Trading Agents</h2>
-        <textarea class="introduction-name" rows="4">
-Welcome to the AlphaScript Marketplace! This project is designed to create intelligent AI-powered agents that can analyze cryptocurrency markets and make informed trading decisions. 
-            Whether you're a seasoned trader or just getting started, our agents can help you navigate the volatile world of cryptocurrency trading and making effective trading decisions.
-            Let's script the market
-        </textarea>
-      </section>
-      <section class="result">
-        <h2 class="result-heading">Latest Agent Results</h2>
-        <article class="result-agent-card">
-          <h3>Momentum Agent</h3>
-          <div class="chart">Chart here</div>
-          <p>Followers: 1240</p>
-          <p>ROI: +32%</p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2026 Script. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    <!-- Wallet + Language  -->
+    <div class="right-controls">
+      <button id="wallet-btn">Connect Wallet</button>
+      <button id="lang-btn">
+        <span class="lang-text">ENG</span>
+        <span style="font-size:1.4rem;">🌐</span>
+      </button>
+    </div>
+  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>AI Autonomous<br>Trading Agents</h1>
+    <p>Welcome to the AlphaScript Marketplace! This project is designed to create intelligent AI-powered agents that can analyze cryptocurrency markets and make informed trading decisions. 
+    Whether you're a seasoned trader or just getting started, our agents can help you navigate the volatile world of cryptocurrency trading.</p>
+    <a href="agents.html" style="display:inline-block; margin-top:2rem; padding:14px 36px; background:#10b981; color:#000; font-weight:700; border-radius:9999px; text-decoration:none; font-size:1.2rem;">
+      Browse All Agents →
+    </a>
+  </section>
+
+  <!-- LATEST AGENT RESULTS -->
+  <section style="width:100%; max-width:1400px; margin:0 auto;">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:0 2rem 1rem;">
+      <h2 style="font-size:2.2rem;">Latest Agent Results</h2>
+      <a href="agents.html" style="color:#10b981; text-decoration:none; font-weight:600;">View all agents →</a>
+    </div>
+
+    <div class="agent-grid" id="agent-grid">
+    </div>
+  </section>
+
+  <footer style="margin-top:auto; padding:3rem; text-align:center; opacity:0.6; font-size:0.95rem;">
+    © 2026 Script. All rights reserved.
+  </footer>
+
+  <script>
+    // original language toggle
+    const btn = document.getElementById('lang-btn');
+    const text = btn.querySelector('.lang-text');
+    let currentLang = 'EN';
+    btn.addEventListener('click', () => {
+      currentLang = currentLang === 'EN' ? 'VN' : 'EN';
+      text.textContent = currentLang;
+    });
+
+    // Wallet demo
+    document.getElementById('wallet-btn').addEventListener('click', () => {
+      alert("✅ Wallet connected! (MetaMask / Phantom simulation)");
+    });
+
+    // Agent cards (same as before)
+    const agents = [
+      { name: "Momentum Agent", strategy: "Momentum", followers: 1240, roi: 32, color: "#10b981" },
+      { name: "Mean Reversion", strategy: "Reversion", followers: 890, roi: 18, color: "#22d3ee" },
+      { name: "Breakout Hunter", strategy: "Breakout", followers: 2140, roi: 47, color: "#a78bfa" }
+    ];
+
+    function createCard(a) {
+      const card = document.createElement('div');
+      card.className = 'agent-card';
+      card.innerHTML = `
+        <div style="padding:1.5rem 1.5rem 0.5rem;">
+          <span class="tag">${a.strategy}</span>
+          <h3 style="margin:1rem 0 0.5rem; font-size:1.45rem;">${a.name}</h3>
+        </div>
+        <div class="chart-container">
+          <svg width="100%" height="100%" viewBox="0 0 320 160" fill="none">
+            <path d="M20 130 Q80 110 120 125 Q170 80 220 65 Q270 40 300 25" stroke="${a.color}" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="80" cy="110" r="6" fill="${a.color}"/>
+            <circle cx="170" cy="80" r="6" fill="${a.color}"/>
+            <circle cx="270" cy="40" r="6" fill="${a.color}"/>
+          </svg>
+        </div>
+        <div style="padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:0.85rem; opacity:0.7;">Followers</div>
+            <div style="font-size:1.45rem; font-weight:700;">${a.followers}</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.85rem; opacity:0.7;">30d ROI</div>
+            <div style="font-size:1.45rem; font-weight:700; color:#10b981;">+${a.roi}%</div>
+          </div>
+          <button onclick="toggleFollow(this)" style="background:#10b981; color:#000; border:none; padding:10px 22px; border-radius:9999px; font-weight:700; cursor:pointer;">Follow</button>
+        </div>
+      `;
+      return card;
+    }
+
+    function toggleFollow(btn) {
+      if (btn.textContent === "Follow") {
+        btn.textContent = "Following ✓";
+        btn.style.background = "#22c55e";
+      } else {
+        btn.textContent = "Follow";
+        btn.style.background = "#10b981";
+      }
+    }
+
+    window.onload = () => {
+      const grid = document.getElementById('agent-grid');
+      agents.forEach(agent => grid.appendChild(createCard(agent)));
+    };
+  </script>
+  <!-- Crypto Ticker -->
+    <div class="crypto-ticker">
+      <div class="ticker-content" id="ticker-content"></div>
+    </div>
+</body>
 </html>

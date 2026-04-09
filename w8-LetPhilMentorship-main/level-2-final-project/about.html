@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaScript — Resources</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="about.css">
+  <script src="about.js" defer></script>
+</head>
+<body>
+  <header class="header">
+  <!-- Logo is clickable -->
+    <a href="index.html" class="logo">AlphaScript</a>
+    <nav class="nav-center">
+      <a href="agents.html">Trading Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">Resources</a>
+    </nav>
+    <div class="right-controls">
+      <button id="wallet-btn">Connect Wallet</button>
+      <button id="lang-btn">
+        <span class="lang-text">ENG</span>
+        <span style="font-size:1.4rem;">🌐</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-container">
+    <h1 class="page-title">Resources & Support</h1>
+
+    <div class="contact-section">
+      <h2>Get in Touch</h2>
+      <form id="contact-form">
+        <input type="text" id="name" placeholder="Your name" required>
+        <input type="email" id="email" placeholder="Email address" required>
+        <textarea id="message" placeholder="How can we help you?" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+  
+  <footer>© 2026 AlphaScript. All rights reserved.</footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaScript — Trading Agents Marketplace</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="agents.css">
+  <script src="agents.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="header">
+  <!-- Logo is clickable -->
+    <a href="index.html" class="logo">AlphaScript</a>
+    <nav class="nav-center">
+      <a href="agents.html">Trading Agents</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">Resources</a>
+    </nav>
+    <div class="right-controls">
+      <button id="wallet-btn">Connect Wallet</button>
+      <button id="lang-btn">
+        <span class="lang-text">ENG</span>
+        <span style="font-size:1.4rem;">🌐</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-container">
+    <h1 class="page-title">Trading Agents Marketplace</h1>
+
+    <!-- Filters -->
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Search agents...">
+      
+      <select id="strategy-filter">
+        <option value="">All Strategies</option>
+        <option value="Momentum">Momentum</option>
+        <option value="Reversion">Mean Reversion</option>
+        <option value="Breakout">Breakout</option>
+      </select>
+
+      <select id="risk-filter">
+        <option value="">All Risk Levels</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+
+      <select id="sort-select">
+        <option value="roi-desc">Sort by ROI (High → Low)</option>
+        <option value="roi-asc">Sort by ROI (Low → High)</option>
+        <option value="followers-desc">Sort by Followers (High → Low)</option>
+      </select>
+    </div>
+
+    <div class="agent-grid" id="agent-grid"></div>
+  </div>
+    
+  <footer>© 2026 AlphaScript. All rights reserved.</footer>
+</body>
+</html>
