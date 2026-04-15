@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaScript - AI Autonomous Trading Agents</title>
+  <link rel="stylesheet" href="shared/navbar.css">
+  <link rel="stylesheet" href="shared/information.css">
+  <link rel="stylesheet" href="shared/ticker.css">
+</head>
+<body>
+  <div class="hero">
+    <h1>AI Autonomous<br>Trading Agents</h1>
+    <p>Welcome to the AlphaScript Marketplace! This project is designed to create intelligent AI-powered agents that can analyze cryptocurrency markets and make informed trading decisions. Whether you're a seasoned trader or just getting started, our agents can help you navigate the volatile world of cryptocurrency trading.</p>
+    <a href="agents/index.html" style="display:inline-block;margin-top:2rem;padding:1rem 2rem;background:#10b981;color:#000;font-weight:700;border-radius:9999px;text-decoration:none;">Browse All Agents →</a>
+  </div>
+
+  <h2 style="text-align:center;margin:4rem 0 1rem;font-size:2rem;">Latest Agent Results</h2>
+  <a href="agents/index.html" style="display:block;text-align:center;margin-bottom:3rem;color:#10b981;">View all agents →</a>
+
+  <div id="featured-grid" class="agent-grid" style="max-width:1400px;margin:0 auto;padding:0 1rem;"></div>
+
+  <script src="shared/script.js"></script>
+  <script>
+    const featured = [{name:"Momentum Agent",strategy:"Momentum",followers:1240,roi:32},{name:"Mean Reversion",strategy:"Reversion",followers:890,roi:18},{name:"Breakout Hunter",strategy:"Breakout",followers:2140,roi:47}];
+    function createHomeCard(a){const c=document.createElement('div');c.className='agent-card';c.innerHTML=`<div style="padding:1.5rem;"><span class="tag">${a.strategy}</span><h3 style="margin:1rem 0 0.5rem;font-size:1.45rem;">${a.name}</h3></div><div style="height:190px;background:#0a0f1c;display:flex;align-items:center;justify-content:center;"><svg width="280" height="160" viewBox="0 0 320 160" fill="none"><path d="M20 130 Q80 110 120 125 Q170 80 220 65 Q270 40 300 25" stroke="#10b981" stroke-width="5"/></svg></div><div style="padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:0.85rem;opacity:0.7;">Followers</div><div style="font-size:1.45rem;font-weight:700;">${a.followers}</div></div><div style="text-align:right;"><div style="font-size:0.85rem;opacity:0.7;">30d ROI</div><div style="font-size:1.45rem;font-weight:700;color:#10b981;">+${a.roi}%</div></div><button onclick="this.textContent=this.textContent==='Follow'?'Following ✓':'Follow';this.style.background=this.style.background==='#10b981'?'#22c55e':'#10b981'" style="background:#10b981;color:#000;border:none;padding:10px 22px;border-radius:9999px;font-weight:700;cursor:pointer;">Follow</button></div>`;return c;}
+    window.onload = () => { const g = document.getElementById('featured-grid'); featured.forEach(a => g.appendChild(createHomeCard(a))); };
+  </script>
+</body>
+</html>

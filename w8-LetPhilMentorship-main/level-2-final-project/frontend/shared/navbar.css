@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.header {
+  position: relative;
+}
+
+/* LOGO */
+/* Logo hover effect */
+.logo {
+  position: fixed;
+  top: 36px;
+  left: 32px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  z-index: 10;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.logo:hover {
+  color: #10b981;
+  transform: scale(1.08);
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+/* GLASS NAVBAR - FINAL POLISH */
+.nav-center {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.05));
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+  z-index: 20;
+  flex-wrap: nowrap;
+}
+
+.nav-center a {
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.nav-center a:hover {
+  transform: scale(1.12);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.right-controls {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#wallet-btn {
+  padding: 0.45rem 1.2rem;
+  background: #10b981;
+  color: #000;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#wallet-btn:hover {
+  background: #22c55e;
+  transform: scale(1.06);
+}
+
+#lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.09);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#lang-btn:hover {
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.06);
+}
