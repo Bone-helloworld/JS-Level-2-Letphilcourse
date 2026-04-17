@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #ecfdf5;
+  background: radial-gradient(circle at top, #22c55e, #0f172a 60%, #020617);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.2rem;
+  padding-top: 140px;
+}
+
+/* HERO POLISH */
+.hero {
+  text-align: center;
+  max-width: 920px;
+  margin: 2rem auto 4rem;
+}
+
+.hero h1 {
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin-bottom: 1.2rem;
+}
+
+.hero p {
+  font-size: 1.35rem;
+  opacity: 0.9;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* AGENT GRID + CARDS */
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 1rem;
+}
+
+.agent-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.agent-card:hover {
+  transform: translateY(-14px) scale(1.02);
+  border-color: #10b981;
+  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.3);
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  opacity: 0.6;
+  font-size: 0.95rem;
+  width: 100%;
+}

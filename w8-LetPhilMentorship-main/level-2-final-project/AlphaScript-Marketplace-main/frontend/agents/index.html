@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Agents - AlphaScript</title>
+  <link rel="stylesheet" href="../shared/navbar.css">
+  <link rel="stylesheet" href="agents.css">
+  <link rel="stylesheet" href="../shared/ticker.css">
+</head>
+<body>
+  <div class="page-container">
+    <h1 class="page-title">Trading Agents Marketplace</h1>
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Search agents...">
+      <select id="strategy-filter"><option value="">All Strategies</option><option value="Momentum">Momentum</option><option value="Reversion">Mean Reversion</option><option value="Breakout">Breakout</option></select>
+      <select id="risk-filter"><option value="">All Risk Levels</option><option value="Low">Low</option><option value="Medium">Medium</option><option value="High">High</option></select>
+      <select id="sort-select"><option value="roi-desc">Sort by ROI (High → Low)</option><option value="roi-asc">Sort by ROI (Low → High)</option><option value="followers-desc">Sort by Followers (High → Low)</option></select>
+    </div>
+    <div id="agent-grid" class="agent-grid"></div>
+  </div>
+
+  <script src="../shared/script.js"></script>
+  <script src="agents.js"></script>
+</body>
+</html>
