@@ -75,20 +75,19 @@ function createCard(agent) {
 }
 
 function toggleFollow(btn, id) {
-  const key = 'followed_' + id;
+  const key = `followed_${id}`;
   if (btn.textContent === "Follow") {
     btn.textContent = "Following ✓";
-    btn.style.background = "#22c55e";
     localStorage.setItem(key, 'true');
   } else {
     btn.textContent = "Follow";
-    btn.style.background = "#10b981";
     localStorage.removeItem(key);
   }
 }
 
 function renderAgents(filteredAgents) {
   const grid = document.getElementById('agent-grid');
+  if (!grid) return;
   grid.innerHTML = '';
   filteredAgents.forEach(agent => grid.appendChild(createCard(agent)));
 }
@@ -97,9 +96,9 @@ function filterAndSort() {
   let filtered = [...agentsData];
 
   // Search
-  const search = document.getElementById('search-input').value.toLowerCase();
-  if (search) {
-    filtered = filtered.filter(a => a.name.toLowerCase().includes(search));
+  const searchTerm = document.getElementById('search-input').value.toLowerCase();
+  if (searchTerm) {
+    filtered = filtered.filter(a => a.name.toLowerCase().includes(searchTerm));
   }
 
   // Strategy filter
@@ -112,35 +111,23 @@ function filterAndSort() {
 
   // Sort
   const sortMode = document.getElementById('sort-select').value;
-  if (sortMode === 'roi-desc') filtered.sort((a,b) => b.roi - a.roi);
-  if (sortMode === 'roi-asc') filtered.sort((a,b) => a.roi - b.roi);
-  if (sortMode === 'followers-desc') filtered.sort((a,b) => b.followers - a.followers);
+  if (sortMode === 'high-to-low') filtered.sort((a,b) => b.roi - a.roi);
+  else if (sortMode === 'low-to-high') filtered.sort((a,b) => a.roi - b.roi);
+  else if (sortMode === 'follower-number') filtered.sort((a,b) => b.followers - a.followers);
 
   renderAgents(filtered);
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  // Language toggle (same as before)
-  const langBtn = document.getElementById('lang-btn');
-  const text = langBtn.querySelector('.lang-text');
-  let currentLang = 'EN';
-  langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'EN' ? 'VN' : 'EN';
-    text.textContent = currentLang;
-  });
+  const filtersContainer = document.querySelector('.filters');   // parent of all filters
 
-  // Wallet
-  document.getElementById('wallet-btn').addEventListener('click', () => {
-    alert("✅ Wallet connected!");
-  });
+  if (filtersContainer) {
+    filtersContainer.addEventListener('input', filterAndSort);
+    filtersContainer.addEventListener('change', filterAndSort);
+  }
 
-  // Filters live update
-  document.getElementById('search-input').addEventListener('input', filterAndSort);
-  document.getElementById('strategy-filter').addEventListener('change', filterAndSort);
-  document.getElementById('risk-filter').addEventListener('change', filterAndSort);
-  document.getElementById('sort-select').addEventListener('change', filterAndSort);
-
-  // Initial render
   renderAgents(agentsData);
 });
+
+

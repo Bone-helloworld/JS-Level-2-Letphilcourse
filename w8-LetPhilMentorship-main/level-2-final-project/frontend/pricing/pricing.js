@@ -1,12 +1,12 @@
 const plans = [
-  { name: "Starter", price: 29, period: "/month", features: ["1 Agent", "Basic strategies", "Real-time alerts"], popular: false },
-  { name: "Pro", price: 79, period: "/month", features: ["5 Agents", "All strategies", "Priority execution", "24/7 support"], popular: true },
-  { name: "Enterprise", price: 199, period: "/month", features: ["Unlimited Agents", "Custom AI", "Private nodes", "Dedicated manager"], popular: false }
+  { name: "Starter", price: 29, period: "/month", features: ["1 Agent", "Basic strategies", "Real-time alerts"] },
+  { name: "Pro", price: 79, period: "/month", features: ["5 Agents", "All strategies", "Priority execution", "24/7 support"] },
+  { name: "Enterprise", price: 199, period: "/month", features: ["Unlimited Agents", "Custom AI", "Private nodes", "Dedicated manager"] }
 ];
 
 function createPricingCard(plan) {
   const card = document.createElement('div');
-  card.className = `pricing-card ${plan.popular ? 'popular' : ''}`;
+  card.className = "pricing-card";
   card.innerHTML = `
     <h3>${plan.name}</h3>
     <div class="price">$${plan.price}<span style="font-size:1.2rem;font-weight:400;">${plan.period}</span></div>

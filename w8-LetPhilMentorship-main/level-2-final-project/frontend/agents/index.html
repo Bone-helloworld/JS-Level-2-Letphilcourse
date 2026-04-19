@@ -13,14 +13,29 @@
     <h1 class="page-title">Trading Agents Marketplace</h1>
     <div class="filters">
       <input type="text" id="search-input" placeholder="Search agents...">
-      <select id="strategy-filter"><option value="">All Strategies</option><option value="Momentum">Momentum</option><option value="Reversion">Mean Reversion</option><option value="Breakout">Breakout</option></select>
-      <select id="risk-filter"><option value="">All Risk Levels</option><option value="Low">Low</option><option value="Medium">Medium</option><option value="High">High</option></select>
-      <select id="sort-select"><option value="roi-desc">Sort by ROI (High → Low)</option><option value="roi-asc">Sort by ROI (Low → High)</option><option value="followers-desc">Sort by Followers (High → Low)</option></select>
+      <select id="strategy-filter">
+        <option value="">All Strategies</option>
+        <option value="Momentum">Momentum</option>
+        <option value="Reversion">Mean Reversion</option>
+        <option value="Breakout">Breakout</option>
+      </select>
+      <select id="risk-filter">
+        <option value="">All Risk Levels</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <select id="sort-select">
+        <option value="high-to-low">Sort by ROI (High → Low)</option>
+        <option value="low-to-high">Sort by ROI (Low → High)</option>
+        <option value="follower-number">Sort by Followers (High → Low)</option>
+      </select>
     </div>
     <div id="agent-grid" class="agent-grid"></div>
   </div>
-
   <script src="../shared/script.js"></script>
   <script src="agents.js"></script>
 </body>
 </html>
+
+
